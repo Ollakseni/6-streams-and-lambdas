@@ -31,7 +31,10 @@ public class MappingStreams {
      */
     public IntStream doubleValuesInStream(IntStream numbers) {
         // hint: use the map() method to double the values in the stream.
-        return null; // TODO
+
+        // Lambda lauseke tatkoittaa että tehdään anonyymi metodi joka saa 0-n parametriä ja metodi suoritetaan heti
+
+        return numbers.map((numero) -> numero * 2); // TODO
     }
 
     /**
@@ -44,7 +47,7 @@ public class MappingStreams {
      */
     public IntStream multiplyValuesInStream(IntStream numbers, int multiplier) {
         // hint: use the map() method to multiply the values in the stream.
-        return null; // TODO
+        return numbers.map((numero) -> numero * multiplier); // TODO
     }
 
     /**

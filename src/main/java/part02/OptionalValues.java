@@ -1,5 +1,6 @@
 package part02;
 
+import java.util.OptionalDouble;
 import java.util.stream.IntStream;
 
 /**
@@ -29,8 +30,9 @@ public class OptionalValues {
          * actual value if it is present, or an alternative value if the OptionalDouble
          * is empty.
          */
-
-        return -1; // TODO
+        
+        OptionalDouble average = stream.average();
+        return average.orElse(0.0);
     }
 
     /**
