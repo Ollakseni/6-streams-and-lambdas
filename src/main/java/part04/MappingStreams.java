@@ -1,6 +1,7 @@
 package part04;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -61,7 +62,9 @@ public class MappingStreams {
          * hint: First, use the stream() method to create a Stream<Integer>.
          * Then, use mapToInt() method to convert that to an IntStream.
          */
-        return null; // TODO
+
+
+        return numbers.stream().mapToInt(Integer::intValue); // TODO
     }
 
     /**
@@ -79,7 +82,9 @@ public class MappingStreams {
      */
     public Stream<String> prefixAllStrings(Stream<String> strings, String prefix) {
         // hint: once again, use the map() method to add the prefix
-        return null; // TODO
+        Function<String, String> lisaa = string -> prefix + string;
+
+        return strings.map(lisaa); // TODO
     }
 
     /**
@@ -95,7 +100,8 @@ public class MappingStreams {
      * @return a stream of strings with the suffix added
      */
     public Stream<String> suffixAllStrings(Stream<String> strings, String suffix) {
-        return null; // TODO
+        Function<String, String> lisaa = string -> string + suffix;
+        return strings.map(lisaa); // TODO
     }
 
     /**
@@ -116,7 +122,14 @@ public class MappingStreams {
          * hint: If your expression is too complex, you can define a separate method
          * that you call from the lambda expression.
          */
-        return null; // TODO
+        //Löytyy Function niminen käsite jota voidaan hyödyntää kun luodaan uusi metodi
+        Function<String, String> poista = merkkijonot -> {
+            if(!merkkijonot.endsWith(suffix)) {
+                return merkkijonot;
+            } 
+            return merkkijonot.substring(0, merkkijonot.length() - suffix.length());      
+        };
+        return strings.map(poista); // TODO
     }
 
     /**
@@ -140,6 +153,17 @@ public class MappingStreams {
          */
 
         // hint: see the mapToObj() method in IntStream
-        return null; // TODO
+        return numbers.mapToObj(n -> {
+            if (n % 3 == 0 && n % 5 == 0) {
+                return "FizzBuzz";
+            }
+            if (n % 3 == 0) {
+                return "Fizz";
+            }
+            if (n % 5 == 0) {
+                return "Buzz";
+            }
+            return Integer.toString(n);
+        });
     }
 }

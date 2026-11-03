@@ -67,8 +67,8 @@ public class IntegerStreams {
          * elements in the stream.
          */
 
+        long result = stream.count();
         
-        
-        return countNumbersInStream(stream); // TODO
+        return result; // TODO
     }
 }
